@@ -1,5 +1,7 @@
 /*⚠️ NO MODIFIQUES EL NOMBRE DE LAS DECLARACIONES ⚠️*/
 
+const { mesesDelAño } = require("../M05 JavaScript Arrays/homework");
+
 function crearGato(nombre, edad) {
    // Debes crear un nuevo objeto con las propiedades "nombre" y "edad".
    // Ambas propiedades deben tener el valor correspondiente recibido por parámetro.
@@ -7,14 +9,31 @@ function crearGato(nombre, edad) {
    // La propiedad "meow" será una función que retorne el string: "Meow!".
    // Retornar el objeto.
    // Tu código:
+     const gato = { 
+      nombre: nombre,
+      edad: edad,
+      meow: function() {
+        return "Meow!";
+      }
+    };
+    return gato;
+   
 }
+console.log(crearGato("Tomy",4));
 
 function nuevoUsuario(nombre, email, password) {
    // Debes crear un nuevo objeto.
    // Este debe tener las propiedades: "nombre", "email" y "password" con sus respectivos valores.
    // Retornar el objeto.
    // Tu código:
+   var persona = {
+      nombre: nombre,
+      email: email,
+      password: password,
+   };
+   return persona;
 }
+console.log(nuevoUsuario("Giomar", "gio@gmail.com", "pollito124"));
 
 function agregarPropiedad(objeto, propiedad) {
    // Recibirás un objeto por parámetro.
@@ -22,26 +41,61 @@ function agregarPropiedad(objeto, propiedad) {
    // Esta propiedad será igual al valor `null`.
    // Retornar el objeto.
    // Tu código:
+   
+   objeto[propiedad] = null;
+   
+  return objeto;
 }
+var perro ={
+nombre:'Dogy',
+edad:5,
+color: 'amarillo',
+
+};
+console.log(agregarPropiedad(perro, 'raza'));
 
 function invocarMetodo(objeto, metodo) {
    // El parámetro "metodo" es un string que coincide con el nombre de una propiedad del objeto recibido.
    // Esta propiedad contiene una función en su interior. Debes invocarla/ejecutarla.
    // [NOTA]: no necesitar retornar nada.
    // Tu código:
+   objeto[metodo]();
 }
+   var alguien={
+   nombre: "Juan",
+   edad: 30,
+   saludar: function() {
+  console.log("Hola, soy " + this.nombre + " y tengo " + this.edad + " años.");
+}
+}
+console.log(invocarMetodo(alguien,"saludar"));
 
 function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
    // El parámetro "objetoMisterioso" posee una propiedad con el nombre "numeroMisterioso".
    // Debes multiplicar este número por 5 y retornar el resultado.
    // Tu código:
+   var numeroMisterioso = objetoMisterioso.numeroMisterioso;
+  return numeroMisterioso * 5;
 }
+var objetoEjemplo = {
+   numeroMisterioso: 10
+};
+
+console.log(multiplicarNumeroDesconocidoPorCinco(objetoEjemplo));
 
 function eliminarPropiedad(objeto, propiedad) {
    // El parámetro "propiedad" es una propiedad del objeto que recibes.
    // Debes eliminarla del objeto y retornarlo finalmente.
    // Tu código:
+   delete objeto[propiedad];
+  return objeto;
 }
+var datodepersona = {
+   nombre: "Juan",
+   edad: 30, 
+   direccion: "Calle 123"
+};
+console.log(eliminarPropiedad(datodepersona,"direccion"));
 
 function tieneEmail(objetoUsuario) {
    // Verifica si el "objetoUsuario", en su propiedad "email", posee un valor definido.
